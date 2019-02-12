@@ -15,8 +15,9 @@ for (i in seq(1:10) ) {
 savings <- 10
 allowance <- 5
 weeklyspend <- 2 * 1.34
+weeks <- 8 
 
-for (i in seq(1:8) ) {
+for (i in seq(1:weeks) ) {
     savings <- savings + allowance - weeklyspend
     print(savings)
 }
@@ -26,7 +27,8 @@ for (i in seq(1:8) ) {
 
 shrinkrate <- .05
 population <-2000
-for (i in seq(1:7) ) {
+years <- 7 
+for (i in seq(1:years) ) {
     population <- population - (population * shrinkrate)
     print(population)
 }
@@ -36,10 +38,12 @@ for (i in seq(1:7) ) {
 
 K <- 10000 #carying capacity 
 r<- 0.8 #instristic growth rate 
-n <- rep(2500,12) #create vector with initial abundance 
+time <- 12 #time stamps
+iAbund <- 2500 #inital abundance 
+n <- rep(iAbund,time) #create vector with initial abundance 
 
 #Method which creates vector of predicted population abundances 
-for (i in 2:12 ) {
+for (i in 2:time ) {
     n[i] <- n[i-1] + ( r * n[i-1] * ( K - n[i-1] ) / K )
     print(n[i])
 }
@@ -47,7 +51,7 @@ for (i in 2:12 ) {
 #Alternative method: does not create vector 
 abundance <- 2500 #initial abundance
 
-for (i in 1:12 ){
+for (i in 1:time ){
     abundance <- abundance + ( r * abundance * (K-abundance) / K )
     print(abundance)
 }
@@ -82,8 +86,9 @@ for (i in 1:12 ){
 #in the Fibonacci sequence, every # after ther first 2 is the sum of the two preceeding #s
     
 fibonacci <- rep(1,20) #create vector of ones because first 2 #s are 1 
+length <-20
 
-for(i in seq(3,20) ) {
+for(i in seq(3,length) ) {
     fibonacci[i] <- fibonacci[i-1] + fibonacci[i-2]
     print(fibonacci[i-2])
 }
