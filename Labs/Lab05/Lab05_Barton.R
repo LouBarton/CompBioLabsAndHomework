@@ -88,3 +88,22 @@ plot( n ~ Gens, pch = 16, col = "lightgreen", cex = .6,
 lines(Gens, p)
 legend( "topright", legend=c("predator", "prey"), 
        col = c("black", "lightgreen"), lty = 1:2, box.lty = 0 )
+
+#matrix of results in which first column is "TimeStep", 
+#second is "PreyAbundance", and third is "PredatorAbundance"
+myResults <- cbind(Gens, n, p)
+colnames(myResults) <- c("TimeStep", "PreyAbundance", "PredatorAbundance")
+head(myResults)
+write.csv(x = myResults, file = "PredPreyResults.csv")
+
+##--------------------------------------------------------------------------##
+#BONUS: A PARAMETER STUDY 
+#Create 10 sets of results, one for each value of initPrey 
+initPreyVec <- seq(from=10, to=100, by=10)
+head(initPreyVec)
+
+for( i in 2:totalGenerations) {
+    newvector[i] <- 
+}
+
+
