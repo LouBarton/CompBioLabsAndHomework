@@ -28,8 +28,7 @@ myAbs <- function(x) {
     #with number -2.3 
     myAbs(-2.3)
     #with vector c(1.1, 2, 0, -4.3, 9, -12)
-    myAbs(c(1.1, 2, 0, -4.3, 9, -12))
-
+    myAbs(c(NA, 2, 0, -4.3, 9, -12))
 #-----------------------------------------------------------------------# 
 
 #Problem III: First n Fibonacci numbers, where n is any integer >=3 
@@ -44,7 +43,7 @@ Fibonacci <- function(n,start) {
         x <- c(start, 1)
         while (length(x) < n) {
             position <- length(x)
-            new <- x[position] + x[position-1]
+            new <- x[position] + x[position - 1]
             x <- c(x,new)
 
         }
@@ -60,34 +59,42 @@ Fibonacci(2,1)
 #BONUSa: make function work for n=1 and n=2 
 
 Fibonacci <- function(n,start) {
+    if (n == 1) {
+        return(start)
+    } else { 
         x <- c(start, 1)
         while (length(x) < n) {
             position <- n
-            new <- x[position] + x[position-1]
+            new <- x[position] + x[position - 1]
             x <- c(x,new)
         }
         return(x)
+    }
 }
 
 #Demonstration of usage
 Fibonacci(2,0)
+Fibonacci(1,1)
+Fibonacci(1,0)
 
 #BONUSb: make function check user input (i.e no zeros, negative, or noninteger #s)
 install.packages("tester")
 library(tester)
 
 Fibonacci <- function(n,start) {
-    if(n < 1 | (is_integer(n)==FALSE)) {  
-    return("Enter a number > 1 that is also an integer")
-} else {
-    x <- c(start, 1)
-    while (length(x) < n) {
-        position <- length(x)
-        new <- x[position] + x[position-1]
-        x <- c(x,new)
-    }
-    return(x)
-    }
+    if(n < 1 | ( is_integer(n)==FALSE ) ) {  
+        return("Enter a number > 1 that is also an integer")
+    } else if (n==1) {
+        return(start)
+    } else {
+        x <- c(start, 1)
+        while (length(x) < n) {
+            position <- length(x)
+            new <- x[position] + x[position-1]
+            x <- c(x,new)
+        }
+        return(x)
+        }
 }
 
 #Demonstration of usage
@@ -95,13 +102,13 @@ Fibonacci(5,1)
 Fibonacci(5.1,1)
 Fibonacci(0,1)
 Fibonacci(-1,1)
-
+Fibonacci(1,0)
 #-----------------------------------------------------------------------# 
 
 #Problem IVa: Square difference of two numbers 
 #Function definition 
 SqDiff <- function(x,y) {
-    SqDiff <- ((x-y)^2)
+    SqDiff <- (( x - y ) ^ 2)
     return(SqDiff)
 }
 
@@ -117,7 +124,7 @@ SqDiff(x,4)
 #Problem IVb: Average of vector of numbers without using mean()
 #Function definition 
 AvgVect <- function(vector) {
-    AvgVect <- (sum(vector)/length(vector))
+    AvgVect <- ( sum(vector) / length(vector) )
     return(AvgVect)
 }
 #Demonstration of usage 
@@ -133,7 +140,7 @@ AvgVect(data$x)
 #Function definition (using functions from IVa&b)
 #Demonstration of usage with data in "DataForLab07.csv" file 
 SumSq <- function(x) {
-    SumSq <- (sum(SqDiff(data$x, AvgVect(data$x))))
+    SumSq <- (sum ( SqDiff (data$x, AvgVect(data$x) ) ) )
     return(SumSq)
 }
 
