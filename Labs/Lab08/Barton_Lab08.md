@@ -57,7 +57,7 @@ To view full R source file, click [HERE](BARTON_lab08.R).
 	```
 	
 	**Example of Graph output using assignments tested above** 
-	![Example graph of abundance over time from example above ](rPlot.jpeg)
+	![Example graph of abundance over time from example above ](Rplot.jpeg)
 
 	**Step 3**: create data frame with time and abundances  from example above and save as "[**PopAbund.csv**](PopAbund.csv)"
 
