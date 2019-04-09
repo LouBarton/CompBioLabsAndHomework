@@ -29,3 +29,18 @@ length(newdf$MeanDensity) #8412 checks out
 
 
 # [Problem 6] -------------- Contrasting most and least dense families ------------------ #
+#which families of trees have the greatest and least densities. 
+#new data frame with average density for each family 
+family_df <- summarize(group_by(data, Family), MeanDensity=mean(Wood.density))
+family_df
+length(family_df$MeanDensity) #191 checks out 
+
+#sort families by density 
+fam_dfSorted <- family_df[order(family_df$MeanDensity), c(1,2)]
+
+#8 families with highest average densities
+head(fam_dfSorted, 8)
+
+#8 families with lowest average densities 
+tail(fam_dfSorted, 8)
+
