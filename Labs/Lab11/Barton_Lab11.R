@@ -3,7 +3,7 @@
 # Lab 11: Data filtering, subsetting, summarizing, and plotting 
 # order(), arrange() and summarise() in dplyr, and ggplot 
 
-#install.packages("tidyverse")
+install.packages("tidyverse")
 library(tidyverse)
 
 # [Problems 1:4] -------------- read in and clean data ------------------ #
@@ -39,8 +39,35 @@ length(family_df$MeanDensity) #191 checks out
 fam_dfSorted <- family_df[order(family_df$MeanDensity), c(1,2)]
 
 #8 families with highest average densities
-head(fam_dfSorted, 8)
+top <- head(fam_dfSorted, 8)
+top$Family
 
 #8 families with lowest average densities 
-tail(fam_dfSorted, 8)
+low <- tail(fam_dfSorted, 8)
+low$Family
 
+#------# WEEK TWO START #-------#
+
+#[Problem 7] Plotting desities of most and least dense families with facets 
+#Densities of individual species from the families with the highest average densities
+
+#subset data if family == family in top 
+topData <- newdf[newdf$Family %in% top$Family,]
+head(topData)
+
+#graph densities of species in top 8 families 
+ggplot(data=topData, mapping=aes(y=MeanDensity)) + 
+    geom_boxplot() + facet_wrap( ~Family, scales="free")
+
+#Densities of individual species from families with the lowest average densities 
+lowData <- newdf[newdf$Family %in% low$Family,]
+head(lowData)
+
+#graph densities of species in lowest 8 families 
+ggplot(data=lowData, mapping=aes(y=MeanDensity)) + 
+    geom_boxplot() + facet_wrap( ~Family, scales="free")
+
+#[Problem 8] Facilitating comparisions with graphics 
+#merge plots from former problem and flip coordinates 
+ggplot(topData) + geom_boxplot(aes(y=MeanDensity, x=Family)) + coord_flip()
+ggplot(lowData) + geom_boxplot(aes(y=MeanDensity, x=Family)) + coord_flip()
