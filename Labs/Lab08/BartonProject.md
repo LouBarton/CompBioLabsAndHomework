@@ -3,7 +3,7 @@
 ### Louise Barton  |  12 April 2019
 #### Masters Thesis Research: Louise K. Barton, Steven D. Johnson, Timo van der Niet, Ruth Cozien, Bruce Anderson, and Erin A. Tripp 
 
-![Coevolution Rulz](Untitiled.jpeg)
+![Coevolution Rulz](Untitiled.jpg)
 
 ## Introduction
 Species that interact strongly often undergo reciprocal coadaptation and thus exhibit coevolutionary patterns. A long-standing aim of evolutionary ecology is to understand these patterns, and specifically to gain insight into the geographic selection mosaic underlying trait divergence among populations of interacting species.  Here we evaluate whether local adaptation could account for an altitudinal cline in the floral morphology of *Zaluzianskya microsiphon* (Scrophulariaceae).  Floral nectar tubes of this species have been shown to co-vary with proboscis length of its long-proboscid fly pollinator *Prosoeca ganglbaueri* (Nemestrinidae) over large geographical spatial scales, but the role of selection in explaining variation in floral tube length at smaller spatial scales had not been investigated.
@@ -19,9 +19,9 @@ Data is in two CSV files. The [first](DATA.xlsx) is from translocations and is c
 Note all columns will be utilized in the analysis, and data from both files will be used. There is missing data in most columns. There are some spacing issues in the from column causing R to think there are two "low" levels. 
 
 ## Proposed Analysis 
-1. Create frequency distribution plots for translocation experiment using ggplot and Tidyverse. 
-2.  Create good visual depiction of altitude vs. nectar tube length. Overlay plots from translocation experiments onto graph of all populations sampled along the altitudinal gradient. 
-3. 
+1. Partition and clean data using only R (i.e no excel). 
+2. Create frequency distribution plots for translocation experiment using ggplot and Tidyverse. 
+3. Create good visual depiction of altitude vs. nectar tube length. Overlay plots from translocation experiments onto graph of all populations sampled along the altitudinal gradient. 
 
 ## References 
 My own data: in the form of two CSV files (see above for links)
